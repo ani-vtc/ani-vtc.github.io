@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
+
+
+<meta name="author" content="VTC Data Team" />
+
+<meta name="date" content="2025-01-28" />
+
+<title>VTC Data Documentation</title>
+
+<script src="index_files/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="index_files/bootstrap-3.3.5/css/bootstrap.min.css" rel="stylesheet" />
+<script src="index_files/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="index_files/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="index_files/bootstrap-3.3.5/shim/respond.min.js"></script>
+<style>h1 {font-size: 34px;}
+       h1.title {font-size: 38px;}
+       h2 {font-size: 30px;}
+       h3 {font-size: 24px;}
+       h4 {font-size: 18px;}
+       h5 {font-size: 16px;}
+       h6 {font-size: 12px;}
+       code {color: inherit; background-color: rgba(0, 0, 0, 0.04);}
+       pre:not([class]) { background-color: white }</style>
+<script src="index_files/navigation-1.1/tabsets.js"></script>
+<link href="index_files/highlightjs-9.12.0/default.css" rel="stylesheet" />
+<script src="index_files/highlightjs-9.12.0/highlight.js"></script>
+<nav id="navbar" style="background: #2c3e50; padding: 10px; color: #fff; text-align: center;">
+  <a href="../index.html" style="color: #fff; margin: 0 10px; text-decoration: none;"> Frontend Documentation</a>
+  <a href="../Backend Documentation/BackendDocumentation.html" style="color: #fff; margin: 0 10px; text-decoration: none;">Backend Documentation</a>
+  </nav>
+  
+  <script>
+    // Make the navbar sticky
+    window.onscroll = function() {
+      const navbar = document.getElementById("navbar");
+      if (window.pageYOffset > 50) {
+        navbar.style.position = "fixed";
+        navbar.style.top = "0";
+        navbar.style.width = "100%";
+      } else {
+        navbar.style.position = "relative";
+      }
+    };
+  </script>
+
+<style type="text/css">
+  code{white-space: pre-wrap;}
+  span.smallcaps{font-variant: small-caps;}
+  span.underline{text-decoration: underline;}
+  div.column{display: inline-block; vertical-align: top; width: 50%;}
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  ul.task-list{list-style: none;}
+    </style>
+
+<style type="text/css">code{white-space: pre;}</style>
+<script type="text/javascript">
+if (window.hljs) {
+  hljs.configure({languages: []});
+  hljs.initHighlightingOnLoad();
+  if (document.readyState && document.readyState === "complete") {
+    window.setTimeout(function() { hljs.initHighlighting(); }, 0);
+  }
+}
+</script>
+
+
+
+
+
+
+<link rel="stylesheet" href="assets/style.css" type="text/css" />
+
+
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+img {
+  max-width:100%;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+.html-widget {
+  margin-bottom: 20px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+summary {
+  display: list-item;
+}
+details > summary > p:only-child {
+  display: inline;
+}
+pre code {
+  padding: 0;
+}
+</style>
+
+
+
+<!-- tabsets -->
+
+<style type="text/css">
+.tabset-dropdown > .nav-tabs {
+  display: inline-table;
+  max-height: 500px;
+  min-height: 44px;
+  overflow-y: auto;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs > li.active:before, .tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "\e259";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
+  content: "\e258";
+  font-family: 'Glyphicons Halflings';
+  border: none;
+}
+
+.tabset-dropdown > .nav-tabs > li.active {
+  display: block;
+}
+
+.tabset-dropdown > .nav-tabs > li > a,
+.tabset-dropdown > .nav-tabs > li > a:focus,
+.tabset-dropdown > .nav-tabs > li > a:hover {
+  border: none;
+  display: inline-block;
+  border-radius: 4px;
+  background-color: transparent;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li {
+  display: block;
+  float: none;
+}
+
+.tabset-dropdown > .nav-tabs > li {
+  display: none;
+}
+</style>
+
+<!-- code folding -->
+
+
+
+
+</head>
+
+<body>
+
+
+<div class="container-fluid main-container">
+
+
+
+
+<div id="header">
+
+
+
+<h1 class="title toc-ignore">VTC Data Documentation</h1>
+<h4 class="author">VTC Data Team</h4>
+<h4 class="date">2025-01-28</h4>
+
+</div>
+
+<div id="TOC">
+<ul>
+<li><a href="#introduction" id="toc-introduction"><span class="toc-section-number">1</span> Introduction</a></li>
+<li><a href="#bbox_filter" id="toc-bbox_filter"><span class="toc-section-number">2</span> bbox_filter</a></li>
+<li><a href="#bound_polygons" id="toc-bound_polygons"><span class="toc-section-number">3</span> bound_polygons</a></li>
+<li><a href="#find_engulfing_polygons" id="toc-find_engulfing_polygons"><span class="toc-section-number">4</span> find_engulfing_polygons</a></li>
+<li><a href="#find_engulfing_polygons-1" id="toc-find_engulfing_polygons-1"><span class="toc-section-number">5</span> find_engulfing_polygons</a></li>
+<li><a href="#pick_polygon_filter_type" id="toc-pick_polygon_filter_type"><span class="toc-section-number">6</span> pick_polygon_filter_type</a></li>
+<li><a href="#polygons_to_map" id="toc-polygons_to_map"><span class="toc-section-number">7</span> Polygons_to_Map</a></li>
+<li><a href="#wkt_polygons" id="toc-wkt_polygons"><span class="toc-section-number">8</span> WKT_polygons</a></li>
+<li><a href="#read_polygons" id="toc-read_polygons"><span class="toc-section-number">9</span> read_polygons</a></li>
+</ul>
+</div>
+
+<div id="introduction" class="section level1" number="1">
+<h1><span class="header-section-number">1</span> Introduction</h1>
+<p>Welcome to the VTC documentation website.</p>
+<!--chapter:end:rmds/01_index.Rmd-->
+</div>
+<div id="bbox_filter" class="section level1" number="2">
+<h1><span class="header-section-number">2</span> bbox_filter</h1>
+<p>Query: Leaflet Bounding Box (View Box) Filters: Filters: Generate a
+where clause based on bounding lines.</p>
+<p>Description:</p>
+<pre><code> Generate SQL WHERE Clause for Viewport Filtering</code></pre>
+<p>Usage:</p>
+<pre><code> bbox_filter(
+   lat_min,
+   lat_max,
+   lng_min,
+   lng_max,
+   filter_type = &quot;greedy&quot;,
+   condition = &quot;WHERE&quot;
+ )
+ </code></pre>
+<p>Arguments:</p>
+<p>lat_min: Minimum latitude of viewport</p>
+<p>lat_max: Maximum latitude of viewport</p>
+<p>lng_min: Minimum longitude of viewport</p>
+<p>lng_max: Maximum longitude of viewport</p>
+<p>filter_type: One of: “greedy”, “shy”, “central”, “off”, “unfiltered”,
+or “point”</p>
+<p>condition: WHERE or AND or “”</p>
+<p>Details:</p>
+<pre><code> *Greedy finds a polygons that are partially OR wholly within the
+ bounding box. The query north bound is above the polygon&#39;s south
+ bound and the query south bound is below the polygons north bound:
+ This is only false if the polygon&#39;s bounding box is entirely above
+ or below the query bounding box.
+
+ *Shy finds polygons that are ONLY wholly within the bounding box.
+ The query north bound is above the polygon&#39;s north bound and the
+ query south bound is below the polygon&#39;s south bound: This is
+ false even if the bounding boxes overlap; it is only true when all
+ corners of the polygon&#39;s bounding box are within the corners of
+ the query bounding box. ** ^This may leave some empty spaces at
+ the edges of the map frame, or, rarely, large missed polygons with
+ odd, long juts. The problem is minimal when the map zoom is
+ relatively far out compared to the average polygon size; in such a
+ case, you&#39;d likely be loading many polygons so the relatively
+ small missed-polygons are a worthwhile cost for speed/data costs.
+ The problem is pronounced when you&#39;re very zoomed in; at the
+ extreme, if you zoom in entirely on a polygon or on the border of
+ two polygons, both of them would be filtered out! ** Therefore,
+ greedy should be used when zooms are relatively low, and shy
+ should be used when zooms are relatively high. Central is a happy
+ medium. *See Dynamic Filter* for a way to adjust display polygons
+ in shiny to the zoom level.
+
+ *Central finds polygons with a centre point within the bounding
+ frame. This will grab everything that Shy grabs (if all four
+ corners are within the bounding frame, of course the centre is as
+ well) and has the potential to grab some polygons which Shy will
+ not (especially large polygons, or ones with odd, long juts which
+ may be largely within the bounding frame with some corner outside
+ for whatever reason). In cases where only a small portion of the
+ polygon would be in frame, it will still load slightly fewer
+ polygons than Greedy.
+
+ *Point uses the central filter on our standard point data columns,
+ to avoid confusion / avoid a duplicate function
+
+ All these filter_types have four WHERE conditions so are not
+ faster in terms of query searching, but Shy is faster than Central
+ and Central is faster than Greedy in terms of downloading and
+ mapping/loading that queried data (in so far as they return TRUE
+ for fewer polygons).</code></pre>
+<!--chapter:end:rmds/bbox_filter.Rmd-->
+</div>
+<div id="bound_polygons" class="section level1" number="3">
+<h1><span class="header-section-number">3</span> bound_polygons</h1>
+<p>##SQL Prep Bounder: The bounder gives us ready access to the bounding
+box of the polygons, as well its centre-point. Technically, the
+bounding box is created with the corners (eg, Bound_North by Bound_East
+is the North-East corner), but using bounding longitudinal and
+latitudinal lines allows for quicker filtering via basic dataframe
+functions, without interpreting a two-dimension coordinate.</p>
+<p>Description:</p>
+<pre><code> Add Bounding Box Information to SF Object</code></pre>
+<p>Usage:</p>
+<pre><code> bound_polygons(sf_object, geometry_column = &quot;Geometry&quot;)
+ </code></pre>
+<p>Arguments:</p>
+<p>sf_object: SF object containing polygons</p>
+<p>geometry_column: Name of the geometry column</p>
+<!--chapter:end:rmds/bound_polygons.Rmd-->
+</div>
+<div id="find_engulfing_polygons" class="section level1" number="4">
+<h1><span class="header-section-number">4</span> find_engulfing_polygons</h1>
+<p>Engulfing Filter: Generates a where condition to find polygons that a
+given point is within. * Without Shiny, we can just import all the
+polygons and use st_within * With Shiny, using a user click as the
+input point, it’s faster to first query for polygons within the map
+view box, since we know the click must have been inside there, so we
+know only polygons which pass a Greedy filter could possibly “engulf”
+(our name for the inverse of “within”) the point. Find Polygons that
+Contain a Point (Pre-filtered Version)</p>
+<p>Description:</p>
+<pre><code> Takes a pre-filtered set of polygons and finds which ones contain
+ a given point. Used in Shiny apps where data is already filtered
+ by map bounds.</code></pre>
+<p>Usage:</p>
+<pre><code> find_engulfing_polygons(click_lat, click_lng, data_sf)
+ </code></pre>
+<p>Arguments:</p>
+<p>click_lat: Numeric. Latitude of the point to check</p>
+<p>click_lng: Numeric. Longitude of the point to check</p>
+<p>polygons_bbox_filtered: sf dataframe. Pre-filtered polygons to search
+within</p>
+<p>Value:</p>
+<pre><code> sf dataframe containing only polygons that contain the point</code></pre>
+<p>Examples:</p>
+<pre><code> find_engulfing_polygons(49.2827, -123.1207, filtered_polygons)
+ </code></pre>
+<!--chapter:end:rmds/find_engulfing_polygons.Rmd-->
+</div>
+<div id="find_engulfing_polygons-1" class="section level1" number="5">
+<h1><span class="header-section-number">5</span> find_engulfing_polygons</h1>
+<p>Engulfing Filter From Base Data: Find Polygons that Contain a Point
+(Unfiltered Version)</p>
+<p>Description:</p>
+<pre><code> Searches entire polygon dataset to find which ones contain a given
+ point. Uses bounding box filter first for efficiency, then precise
+ containment check.</code></pre>
+<p>Usage:</p>
+<pre><code> find_ep_unfiltered(click_lat, click_lng, data_sf)
+ </code></pre>
+<p>Arguments:</p>
+<p>click_lat: Numeric. Latitude of the point to check</p>
+<p>click_lng: Numeric. Longitude of the point to check</p>
+<p>data_sf: sf dataframe. Complete set of polygons to search within</p>
+<p>Value:</p>
+<pre><code> sf dataframe containing only polygons that engulf the point</code></pre>
+<p>Examples:</p>
+<pre><code> find_ep_unfiltered(49.2827, -123.1207, all_polygons)
+ </code></pre>
+<!--chapter:end:rmds/find_ep_unfiltered.Rmd-->
+</div>
+<div id="pick_polygon_filter_type" class="section level1" number="6">
+<h1><span class="header-section-number">6</span> pick_polygon_filter_type</h1>
+<p>Dynamic Filtering (Shiny): Method to use the most optimal filter (speed
+/ gaps tradeoff) for different zoom levels. Simply use an if statement
+taking the zoom as input, selecting a different filter_type.</p>
+<p>Description:</p>
+<pre><code> Determines appropriate polygon filter strategy based on map zoom
+ level</code></pre>
+<p>Usage:</p>
+<pre><code> pick_polygon_filter_type(
+   zoom_level,
+   high_cutoff,
+   mid_cutoff,
+   low_cutoff,
+   off_cutoff
+ )
+ </code></pre>
+<p>Arguments:</p>
+<p>zoom_level: Numeric. Current map zoom level</p>
+<p>high_cutoff: Numeric. Zoom threshold for greedy filter (typically 14)</p>
+<p>mid_cutoff: Numeric. Zoom threshold for central filter (typically 10)</p>
+<p>low_cutoff: Numeric. Zoom threshold for shy filter (typically 7)</p>
+<p>off_cutoff: Numeric. Minimum zoom threshold to show polygons (typically
+0)</p>
+<p>Details:</p>
+<pre><code> Select Polygon Filter Type Based on Zoom Level</code></pre>
+<p>Value:</p>
+<pre><code> Character. Filter type to use (&quot;greedy&quot;, &quot;central&quot;, &quot;shy&quot;, or
+ &quot;hide&quot;)</code></pre>
+<p>Examples:</p>
+<pre><code> pick_polygon_filter_type(15, 14, 10, 7, 0)
+ </code></pre>
+<!--chapter:end:rmds/pick_polygon_filter_type.Rmd-->
+</div>
+<div id="polygons_to_map" class="section level1" number="7">
+<h1><span class="header-section-number">7</span> Polygons_to_Map</h1>
+<p>Reactive Polygon Filter for Map Display</p>
+<p>Description:</p>
+<pre><code> Shiny reactive that filters polygons based on map bounds and zoom
+ level Returns empty sf object if bounds/zoom are NULL or zoom is
+ too low</code></pre>
+<p>Usage:</p>
+<pre><code> polygons_to_map()
+ </code></pre>
+<!--chapter:end:rmds/polygons_to_map.Rmd-->
+</div>
+<div id="wkt_polygons" class="section level1" number="8">
+<h1><span class="header-section-number">8</span> WKT_polygons</h1>
+<p>WKT geometry: Well-known-text allows to save and read the geometry
+(series of coordinates creating nodes and lines) in a simple dataframe
+without necessarily interpreting, saving, downloading as geodata.</p>
+<p>Description:</p>
+<pre><code> Convert SF Geometry to WKT Format</code></pre>
+<p>Usage:</p>
+<pre><code> WKT_polygons(sf_object, geometry_column = &quot;Geometry&quot;)
+ </code></pre>
+<p>Arguments:</p>
+<p>sf_object: SF object to convert</p>
+<p>geometry_column: Name of the geometry column</p>
+<p>Details:</p>
+<pre><code> WKT_polygons *creates* WKT geodata. To read WKT, use read_polygons
+ which has a built-in check for WKT-data input</code></pre>
+<!--chapter:end:rmds/WKT_polygons.Rmd-->
+</div>
+<div id="read_polygons" class="section level1" number="9">
+<h1><span class="header-section-number">9</span> read_polygons</h1>
+<p>Polygons Imports: In many cases, simply using read_sf() will work, but
+this function ensures we avoid many of the common issues with many
+polygon downloads. It’s useful for leaflet foremost, but standardizing
+the CRS and dimension count also avoids many basic geoprocessing errors
+which can be annoying to troubleshoot.</p>
+<p>Description:</p>
+<pre><code> Read and Standardize Polygon Data</code></pre>
+<p>Usage:</p>
+<pre><code> read_polygons(data_file)
+ </code></pre>
+<p>Arguments:</p>
+<p>data_file: Either a file path or dataframe containing WKT geometry</p>
+<p>Details:</p>
+<pre><code>    * Read polygons with sf package (which automatically interprets
+      file type), or interpret the WKT into geometry, depending on
+      input. read_sf() will generally be used for processing
+      outside geodata, and WKT will generally be used from queries
+      to our database.
+
+    * Remove 3rd z-dimension if present (often default exports
+      create an empty or zero value for this column; leaflet can&#39;t
+      use polygons with it, even when empty)
+
+    * Ensure we&#39;re using &quot;Web CRS&quot;</code></pre>
+<p>Value:</p>
+<pre><code> Standardized sf object with EPSG:4326 CRS and no Z dimension</code></pre>
+<!--chapter:end:rmds/read_polygons.Rmd-->
+</div>
+
+
+
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.odd').parent('tbody').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+
+
+</script>
+
+<!-- tabsets -->
+
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open');
+  });
+});
+</script>
+
+<!-- code folding -->
+
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>

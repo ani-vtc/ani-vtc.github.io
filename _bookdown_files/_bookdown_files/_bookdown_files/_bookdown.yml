@@ -1,0 +1,16 @@
+book_filename: "index"
+output_dir: "docs/"
+delete_merged_file: true
+rmd_files: 
+  - rmds/01_index.Rmd
+  - rmds/bbox_filter.Rmd
+  - rmds/bound_polygons.Rmd
+  - rmds/find_engulfing_polygons.Rmd
+  - rmds/find_ep_unfiltered.Rmd
+  - rmds/pick_polygon_filter_type.Rmd
+  - rmds/polygons_to_map.Rmd
+  - rmds/WKT_polygons.Rmd
+  - rmds/read_polygons.Rmd
+language:
+  ui:
+    chapter_name: "Section "

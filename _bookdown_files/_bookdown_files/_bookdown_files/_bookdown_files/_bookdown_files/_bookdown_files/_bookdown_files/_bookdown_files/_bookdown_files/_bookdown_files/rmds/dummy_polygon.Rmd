@@ -1,0 +1,19 @@
+Shiny Example: Example of live updating polygon layer in a shiny app,
+where a map has been created as mapname <- leaflet()...
+
+Description:
+
+  Shiny Example:
+
+       Example of live updating polygon layer in a shiny app, where a
+       map has been created as mapname <- leaflet()...
+
+Usage:
+
+     dummy_polygon
+     
+Format:
+
+     An object of class ‘XY’ (inherits from ‘POLYGON’, ‘sfg’) of length
+     1.
+

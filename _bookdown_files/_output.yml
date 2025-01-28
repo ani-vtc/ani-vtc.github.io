@@ -1,0 +1,8 @@
+bookdown::html_document2:
+  css: assets/style.css
+  includes:
+    in_header: assets/navbar.html
+  toc: true
+  toc_depth: 3
+  number_sections: true
+  self_contained: false

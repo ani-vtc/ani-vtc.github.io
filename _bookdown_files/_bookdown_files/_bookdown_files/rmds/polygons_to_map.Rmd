@@ -1,0 +1,14 @@
+# Polygons_to_Map
+
+Reactive Polygon Filter for Map Display
+
+Description:
+
+     Shiny reactive that filters polygons based on map bounds and zoom
+     level Returns empty sf object if bounds/zoom are NULL or zoom is
+     too low
+
+Usage:
+
+     polygons_to_map()
+     

@@ -1,0 +1,18 @@
+<nav id="navbar" style="background: #2c3e50; padding: 10px; color: #fff; text-align: center;">
+  <a href="../index.html" style="color: #fff; margin: 0 10px; text-decoration: none;"> Frontend Documentation</a>
+  <a href="../Backend Documentation/BackendDocumentation.html" style="color: #fff; margin: 0 10px; text-decoration: none;">Backend Documentation</a>
+  </nav>
+  
+  <script>
+    // Make the navbar sticky
+    window.onscroll = function() {
+      const navbar = document.getElementById("navbar");
+      if (window.pageYOffset > 50) {
+        navbar.style.position = "fixed";
+        navbar.style.top = "0";
+        navbar.style.width = "100%";
+      } else {
+        navbar.style.position = "relative";
+      }
+    };
+  </script>

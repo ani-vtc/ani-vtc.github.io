@@ -1,0 +1,10 @@
+---
+title: "VTC Data Documentation"
+author: "VTC Data Team"
+site: bookdown::bookdown_site
+date: "`r Sys.Date()`"
+output: bookdown::html_document2
+---
+# Introduction
+
+Welcome to the VTC documentation website. 

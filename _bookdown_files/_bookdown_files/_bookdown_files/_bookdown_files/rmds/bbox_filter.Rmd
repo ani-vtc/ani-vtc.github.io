@@ -1,0 +1,81 @@
+# bbox_filter
+
+Query: Leaflet Bounding Box (View Box) Filters: Filters: Generate a
+where clause based on bounding lines.
+
+Description:
+
+     Generate SQL WHERE Clause for Viewport Filtering
+
+Usage:
+
+     bbox_filter(
+       lat_min,
+       lat_max,
+       lng_min,
+       lng_max,
+       filter_type = "greedy",
+       condition = "WHERE"
+     )
+     
+Arguments:
+
+ lat_min: Minimum latitude of viewport
+
+ lat_max: Maximum latitude of viewport
+
+ lng_min: Minimum longitude of viewport
+
+ lng_max: Maximum longitude of viewport
+
+filter_type: One of: "greedy", "shy", "central", "off", "unfiltered",
+          or "point"
+
+condition: WHERE or AND or ""
+
+Details:
+
+     *Greedy finds a polygons that are partially OR wholly within the
+     bounding box. The query north bound is above the polygon's south
+     bound and the query south bound is below the polygons north bound:
+     This is only false if the polygon's bounding box is entirely above
+     or below the query bounding box.
+
+     *Shy finds polygons that are ONLY wholly within the bounding box.
+     The query north bound is above the polygon's north bound and the
+     query south bound is below the polygon's south bound: This is
+     false even if the bounding boxes overlap; it is only true when all
+     corners of the polygon's bounding box are within the corners of
+     the query bounding box. ** ^This may leave some empty spaces at
+     the edges of the map frame, or, rarely, large missed polygons with
+     odd, long juts. The problem is minimal when the map zoom is
+     relatively far out compared to the average polygon size; in such a
+     case, you'd likely be loading many polygons so the relatively
+     small missed-polygons are a worthwhile cost for speed/data costs.
+     The problem is pronounced when you're very zoomed in; at the
+     extreme, if you zoom in entirely on a polygon or on the border of
+     two polygons, both of them would be filtered out! ** Therefore,
+     greedy should be used when zooms are relatively low, and shy
+     should be used when zooms are relatively high. Central is a happy
+     medium. *See Dynamic Filter* for a way to adjust display polygons
+     in shiny to the zoom level.
+
+     *Central finds polygons with a centre point within the bounding
+     frame. This will grab everything that Shy grabs (if all four
+     corners are within the bounding frame, of course the centre is as
+     well) and has the potential to grab some polygons which Shy will
+     not (especially large polygons, or ones with odd, long juts which
+     may be largely within the bounding frame with some corner outside
+     for whatever reason). In cases where only a small portion of the
+     polygon would be in frame, it will still load slightly fewer
+     polygons than Greedy.
+
+     *Point uses the central filter on our standard point data columns,
+     to avoid confusion / avoid a duplicate function
+
+     All these filter_types have four WHERE conditions so are not
+     faster in terms of query searching, but Shy is faster than Central
+     and Central is faster than Greedy in terms of downloading and
+     mapping/loading that queried data (in so far as they return TRUE
+     for fewer polygons).
+

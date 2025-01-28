@@ -1,0 +1,25 @@
+# WKT_polygons
+
+WKT geometry: Well-known-text allows to save and read the geometry
+(series of coordinates creating nodes and lines) in a simple dataframe
+without necessarily interpreting, saving, downloading as geodata.
+
+Description:
+
+     Convert SF Geometry to WKT Format
+
+Usage:
+
+     WKT_polygons(sf_object, geometry_column = "Geometry")
+     
+Arguments:
+
+sf_object: SF object to convert
+
+geometry_column: Name of the geometry column
+
+Details:
+
+     WKT_polygons *creates* WKT geodata. To read WKT, use read_polygons
+     which has a built-in check for WKT-data input
+

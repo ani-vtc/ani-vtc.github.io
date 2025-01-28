@@ -1,0 +1,31 @@
+# find_engulfing_polygons
+
+Engulfing Filter From Base Data: Find Polygons that Contain a Point
+(Unfiltered Version)
+
+Description:
+
+     Searches entire polygon dataset to find which ones contain a given
+     point. Uses bounding box filter first for efficiency, then precise
+     containment check.
+
+Usage:
+
+     find_ep_unfiltered(click_lat, click_lng, data_sf)
+     
+Arguments:
+
+click_lat: Numeric. Latitude of the point to check
+
+click_lng: Numeric. Longitude of the point to check
+
+ data_sf: sf dataframe. Complete set of polygons to search within
+
+Value:
+
+     sf dataframe containing only polygons that engulf the point
+
+Examples:
+
+     find_ep_unfiltered(49.2827, -123.1207, all_polygons)
+     

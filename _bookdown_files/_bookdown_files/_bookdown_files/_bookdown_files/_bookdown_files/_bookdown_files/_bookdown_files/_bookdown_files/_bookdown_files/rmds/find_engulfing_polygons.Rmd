@@ -1,0 +1,38 @@
+# find_engulfing_polygons
+
+Engulfing Filter: Generates a where condition to find polygons that a
+given point is within.  * Without Shiny, we can just import all the
+polygons and use st_within * With Shiny, using a user click as the
+input point, it's faster to first query for polygons within the map
+view box, since we know the click must have been inside there, so we
+know only polygons which pass a Greedy filter could possibly "engulf"
+(our name for the inverse of "within") the point.  Find Polygons that
+Contain a Point (Pre-filtered Version)
+
+Description:
+
+     Takes a pre-filtered set of polygons and finds which ones contain
+     a given point. Used in Shiny apps where data is already filtered
+     by map bounds.
+
+Usage:
+
+     find_engulfing_polygons(click_lat, click_lng, data_sf)
+     
+Arguments:
+
+click_lat: Numeric. Latitude of the point to check
+
+click_lng: Numeric. Longitude of the point to check
+
+polygons_bbox_filtered: sf dataframe. Pre-filtered polygons to search
+          within
+
+Value:
+
+     sf dataframe containing only polygons that contain the point
+
+Examples:
+
+     find_engulfing_polygons(49.2827, -123.1207, filtered_polygons)
+     
